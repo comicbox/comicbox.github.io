@@ -1,0 +1,36 @@
+---
+layout: page
+title: Frequently Asked Questions
+permalink: /faq/
+---
+
+<ul class="collapsible">
+    {% for question in site.faq %}
+        <li>
+            <div class="collapsible-header"><i class="material-icons">add_circle_outline</i>{{ question.question }}</div>
+            <div class="collapsible-body"><span>{{ question.content | markdownify }}</span></div>
+        </li>
+    {% endfor %}
+</ul>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        M.Collapsible.init(document.querySelectorAll('.collapsible'), {
+            accordion: false,
+            onOpenStart: function(element) {
+                var icons = element.querySelectorAll('i.material-icons')
+                if (icons.length === 0) {
+                    return
+                }
+                icons[0].innerText = 'remove_circle_outline'
+            },
+            onCloseStart: function(element) {
+                var icons = element.querySelectorAll('i.material-icons')
+                if (icons.length === 0) {
+                    return
+                }
+                icons[0].innerText = 'add_circle_outline'
+            },
+        });
+    });
+</script>
