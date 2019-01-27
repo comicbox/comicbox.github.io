@@ -14,6 +14,8 @@
 <body>
     <nav>
         <div class="nav-wrapper blue">
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
             <a href="/" class="brand-logo">ComicBox</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/download">Download</a></li>
@@ -23,9 +25,22 @@
         </div>
     </nav>
 
+    <ul id="slide-out" class="sidenav">
+        <li><a href="/download">Download</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+
     <div class="container">
         {{ content }}
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, {});
+        });
+    </script>
 </body>
 
 </html>
