@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
+{% assign pages = site.pages | sort: 'index'  %}
+
 <body>
     <nav>
         <div class="nav-wrapper blue">
@@ -18,17 +20,18 @@
 
             <a href="/" class="brand-logo">ComicBox</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/download">Download</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/about">About</a></li>
+                {% for page in pages %}
+                    <li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
+                {% endfor %}
             </ul>
         </div>
     </nav>
 
     <ul id="slide-out" class="sidenav">
-        <li><a href="/download">Download</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="/about">About</a></li>
+
+        {% for page in pages %}
+            <li><a href="{{ page.permalink }}">{{ page.title }}</a></li>
+        {% endfor %}
     </ul>
 
     <div class="container">
