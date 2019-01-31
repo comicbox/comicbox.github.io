@@ -8,7 +8,6 @@ github_username:  comicbox
 
 collections:
   - faq
-  - pages
 
 # Build settings
 markdown: kramdown

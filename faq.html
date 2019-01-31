@@ -11,8 +11,10 @@ index: 1
     }
 </style>
 
+{% assign questions = site.faq | sort: 'index'  %}
+
 <ul class="collapsible">
-    {% for question in site.faq %}
+    {% for question in questions %}
         <li>
             <div class="collapsible-header"><i class="material-icons">add_circle_outline</i>{{ question.question }}</div>
             <div class="collapsible-body"><span>{{ question.content | markdownify }}</span></div>
